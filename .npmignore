@@ -1,0 +1,17 @@
+*.log
+*.cache
+.*
+/test
+/testhelper
+/CHANGELOG.md
+/.package.json
+/src
+/build
+/reporters
+/scripts
+/coverage
+/esdoc
+.DS_Store
+npm-debug.log
+/.vscode
+/innertest
