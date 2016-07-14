@@ -106,6 +106,7 @@ export default class AMD2CMDTransformer {
 
     return result.toString()
       .replace(this.indentType === 'TAB' ? TAB_START_REGEXP : TWO_BLACK_START_REGEXP, '')
+      .replace(/^\n/, '')
       .replace(/\n$/, '')
       .replace(REQUIRE_EXPRESSION_REGEXP,
         (match, moduleName) => `require('${this.moduleNameTransform(moduleName)}')`);
@@ -136,7 +137,7 @@ export default class AMD2CMDTransformer {
       if (module.dependencyName) {
         return `var ${module.dependencyName} = require('${module.moduleName}');`;
       }
-      return `require('${module.moduleName}')`;
+      return `require('${module.moduleName}');`;
     };
 
     return `${map(dependencyModules, mapFn).join('\n')}\n`;

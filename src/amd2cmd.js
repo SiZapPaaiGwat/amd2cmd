@@ -26,7 +26,7 @@ export class ModulePathTransform {
     if (modulePath.startsWith('.')) {
       return modulePath;
     } else if (modulePath.indexOf('/') === -1) {
-      if (existsSync(`${join(this.filepath, modulePath).js}`)) {
+      if (existsSync(`${join(this.filepath, modulePath)}.js`)) {
         return `./${modulePath}`;
       }
       return modulePath;
