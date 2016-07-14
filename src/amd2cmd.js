@@ -44,7 +44,7 @@ function generateCodeTransformFn(basedir) {
     const modulePathTransformer = new ModulePathTransform(dirname(file.path), basedir);
     const modulePathTransformFn = (modulePath) => modulePathTransformer.transform(modulePath);
     /* eslint no-param-reassign:0 */
-    file.contents = new Buffer(new AMD2CMDTransformer(file.contents.toString('utf-8'),
+    file.contents = Buffer.from(new AMD2CMDTransformer(file.contents.toString('utf-8'),
       modulePathTransformFn).transform(), 'utf-8');
     cb(null, file);
   };
