@@ -1,6 +1,6 @@
 {
   "name": "amd2cmd",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "transform AMD(require.js) to CommonJS",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es6.js",
