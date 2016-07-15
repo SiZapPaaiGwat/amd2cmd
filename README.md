@@ -5,6 +5,7 @@ transform [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) or CommonJS inspire
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
+[![Dependency Status][depstat-image]][depstat-url]
 
 ## Transform What
 
@@ -97,3 +98,6 @@ Generate JavaScript API doc:
 [travis-url]: https://travis-ci.org/sinolz/amd2cmd
 [coveralls-image]: https://coveralls.io/repos/github/sinolz/amd2cmd/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/github/sinolz/amd2cmd?branch=master
+
+[depstat-url]: https://david-dm.org/sinolz/amd2cmd
+[depstat-image]: https://img.shields.io/david/sinolz/amd2cmd/master.svg?style=flat-square
