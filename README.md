@@ -2,6 +2,8 @@
 
 transform [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) or CommonJS inspired by [require.js](http://requirejs.org/) to [CommonJS](http://www.commonjs.org/).
 
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+
 ## Transform What
 
 before(AMD):
