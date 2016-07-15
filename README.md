@@ -2,7 +2,8 @@
 
 transform [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) or CommonJS inspired by [require.js](http://requirejs.org/) to [CommonJS](http://www.commonjs.org/).
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 
 ## Transform What
 
@@ -88,3 +89,8 @@ Generate JavaScript API doc:
 ```bash
  $ npm esdoc
 ```
+
+[npm-image]: https://badge.fury.io/js/amd2cmd.svg
+[npm-url]: https://npmjs.org/package/amd2cmd
+[travis-image]: https://travis-ci.org/sinolz/amd2cmd.svg?branch=master
+[travis-url]: https://travis-ci.org/sinolz/amd2cmd
