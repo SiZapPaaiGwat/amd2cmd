@@ -1,6 +1,6 @@
 {
   "name": "amd2cmd",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "transform AMD(require.js) to CommonJS",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es6.js",
@@ -50,6 +50,8 @@
   "dependencies": {
     "acorn": "^3.2.0",
     "commander": "^2.9.0",
-    "lodash": "^4.13.1"
+    "lodash": "^4.13.1",
+    "vinyl-fs": "^2.4.3",
+    "map-stream": "^0.0.6"
   }
 }
