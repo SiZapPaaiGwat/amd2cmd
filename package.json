@@ -15,7 +15,11 @@
     "build": "gulp lint && gulp test && gulp build",
     "doc": "esdoc -c ./esdoc.json"
   },
-  "author": "",
+  "author": "sinolz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinolz/amd2cmd.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.8.0",
