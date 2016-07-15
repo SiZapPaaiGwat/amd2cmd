@@ -1,4 +1,4 @@
-import amd2cmd, { ModulePathTransform } from '../src/amd2cmd';
+import amd2cmd, { ModulePathTransform, formatFilePath, formatFilePathToGlob } from '../src/amd2cmd';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { join } from 'path';
@@ -24,5 +24,16 @@ describe('amd2cmd', () => {
       expect(readFileSync(join(outDir, 'cmdcode.js'), 'utf-8')).equal(expected);
       done();
     });
+  });
+
+  it('format file path', () => {
+    expect(formatFilePath('./test.js')).to.equal(join(process.cwd(), 'test.js'));
+    expect(formatFilePath(null)).to.equal(null);
+    expect(formatFilePath('/test/*')).to.equal('/test/*');
+  });
+
+  it('format file path glob', () => {
+    expect(formatFilePathToGlob(__dirname)).to.equal(join(__dirname, '**/*.js'));
+    expect(formatFilePathToGlob('/test/**/*')).to.equal('/test/**/*');
   });
 });

@@ -51,7 +51,7 @@ function generateCodeTransformFn(basedir) {
   };
 }
 
-function formatFilePath(filepath) {
+export function formatFilePath(filepath) {
   if (filepath && (!isAbsolute(filepath))) {
     return join(process.cwd(), filepath);
   }
@@ -59,7 +59,7 @@ function formatFilePath(filepath) {
   return filepath;
 }
 
-function formatFilePathToGlob(filepath) {
+export function formatFilePathToGlob(filepath) {
   const formatPath = formatFilePath(filepath);
   if (existsSync(formatPath)) {
     const stats = statSync(formatPath);
