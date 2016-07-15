@@ -6,6 +6,7 @@ import eslint from 'gulp-eslint';
 
 import mocha from 'gulp-mocha';
 import istanbul from 'gulp-istanbul';
+import coveralls from 'gulp-coveralls';
 import { Instrumenter as ispartaInstrumenter } from 'isparta';
 
 import { rollup } from 'rollup';
@@ -85,6 +86,11 @@ gulp.task('unittest:coverage', ['unittest:coverage:pre'], () => {
       },
     }));
 });
+
+gulp.task('coveralls', () =>
+  gulp.src('reporters/coverage/lcov.info')
+    .pipe(coveralls())
+);
 
 gulp.task('test', ['unittest']);
 gulp.task('coverage', ['unittest:coverage']);

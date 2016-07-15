@@ -10,6 +10,7 @@
   "scripts": {
     "test": "gulp test",
     "coverage": "gulp coverage",
+    "coveralls": "gulp coverage && gulp coveralls",
     "lint": "gulp lint",
     "watch": "gulp watch",
     "build": "gulp lint && gulp test && gulp build",
@@ -35,6 +36,7 @@
     "eslint-plugin-import": "^1.8.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-coveralls": "^0.1.4",
     "gulp-eslint": "^2.0.0",
     "gulp-istanbul": "^0.10.4",
     "gulp-mocha": "^2.2.0",
@@ -43,6 +45,7 @@
     "istanbul": "^0.4.3",
     "mime-types": "^2.1.11",
     "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
     "nock": "^8.0.0",
     "proxyquire": "^1.7.9",
     "rollup": "^0.26.3",
