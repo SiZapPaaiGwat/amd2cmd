@@ -24,7 +24,7 @@ if (program.in && program.out && program.basedir) {
   amd2cmd([formatFilePath(program.in)],
     formatFilePath(program.out), formatFilePath(program.basedir))
   .on('finish', function() {
-    console.log('finsih amd to cmd.');
+    console.log('finish amd to cmd.');
   });
 } else {
   console.log('you must be set --in, --out and --basedir');
