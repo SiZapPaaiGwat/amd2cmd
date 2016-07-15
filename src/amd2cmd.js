@@ -1,6 +1,6 @@
 import vfs from 'vinyl-fs';
 import map from 'map-stream';
-import { join, relative, dirname } from 'path';
+import { join, relative, dirname, isAbsolute } from 'path';
 import { existsSync } from 'fs';
 import AMD2CMDTransformer from './AMD2CMDTransformer';
 
@@ -41,7 +41,7 @@ export class ModulePathTransform {
 
 function generateCodeTransformFn(basedir) {
   return (file, cb) => {
-    const modulePathTransformer = new ModulePathTransform(dirname(file.path), basedir);
+    const modulePathTransformer = new ModulePathTransform(dirname(file.path), basedir || file.base);
     const modulePathTransformFn = (modulePath) => modulePathTransformer.transform(modulePath);
     /* eslint no-param-reassign:0 */
     file.contents = Buffer.from(new AMD2CMDTransformer(file.contents.toString('utf-8'),
@@ -50,16 +50,24 @@ function generateCodeTransformFn(basedir) {
   };
 }
 
+function formatBaseDir(basedir) {
+  if (basedir && (!isAbsolute(basedir))) {
+    return join(process.cwd(), basedir);
+  }
+
+  return basedir;
+}
+
 /**
  * transform amd code to cmd code
  *
  * @export
  * @param {String[]} inFiles files pattern which will be transformed, pattern visit https://github.com/isaacs/node-glob
  * @param {String} outDir target directory
- * @param {String} basedir amd module base dir
+ * @param {String?} basedir amd module base dir. If relative path, will join with `process.cwd()`, or if null, will reguest basedir from inFiles, visit https://github.com/gulpjs/vinyl#optionsbase
  */
 export default function amd2cmd(inFiles, outDir, basedir) {
-  const mapFn = generateCodeTransformFn(basedir);
+  const mapFn = generateCodeTransformFn(formatBaseDir(basedir));
   return vfs.src(inFiles, { buffer: true })
    .pipe(map(mapFn))
    .pipe(vfs.dest(outDir));

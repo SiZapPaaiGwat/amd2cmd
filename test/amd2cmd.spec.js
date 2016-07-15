@@ -14,7 +14,7 @@ describe('amd2cmd', () => {
   });
 
   it('transform amd code', done => {
-    const inFiles = [join(__dirname, './code/*.js')];
+    const inFiles = [join(__dirname, './code/**/*.js')];
     const outDir = join(__dirname, '../build/tmp');
     const basedir = join(__dirname, 'code');
     const expected = readFileSync(join(__dirname, './code/cmdcode.js'), 'utf-8');

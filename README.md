@@ -39,7 +39,7 @@ First, install amd2cmd:
 Second, cd your project, and exec cmd:
 
 ```bash
- amd2cmd --in src/scripts/**/*.js --out build/scripts --baseDir src/scripts
+ amd2cmd --in=src/scripts/**/*.js --out=build/scripts --baseDir=src/scripts
 ```
 
 ### use with node.js

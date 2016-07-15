@@ -13,18 +13,22 @@ program
     .parse(process.argv);
 
 function formatFilePath(filePath) {
-  if (path.isAbsolute(filePath)) {
-    return filePath;
+  if (filePath && (!path.isAbsolute(filePath))) {
+    return path.join(process.cwd(), filePath);
   }
 
-  return path.join(process.cwd(), filePath);
+  return filePath;
 }
 
-if (program.in && program.out && program.basedir) {
+if (program.in && program.out) {
   amd2cmd([formatFilePath(program.in)],
     formatFilePath(program.out), formatFilePath(program.basedir))
   .on('finish', function() {
     console.log('finish amd to cmd.');
+  })
+  .on('error', function(error) {
+    console.error(error);
+    process.exit(1);
   });
 } else {
   console.log('you must be set --in, --out and --basedir');
