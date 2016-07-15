@@ -4,6 +4,9 @@
   "description": "transform AMD(require.js) to CommonJS",
   "main": "dist/index.js",
   "jsnext:main": "dist/index.es6.js",
+  "bin": {
+    "amd2cmd": "bin/cmd"
+  },
   "scripts": {
     "test": "gulp test",
     "coverage": "gulp coverage",
@@ -45,7 +48,8 @@
     "supertest": "^1.2.0"
   },
   "dependencies": {
-    "lodash": "^4.13.1",
-    "acorn": "^3.2.0"
+    "acorn": "^3.2.0",
+    "commander": "^2.9.0",
+    "lodash": "^4.13.1"
   }
 }

@@ -39,7 +39,7 @@ First, install amd2cmd:
 Second, cd your project, and exec cmd:
 
 ```bash
- amd2cmd -in src/scripts/**/*.js -out build/scripts -baseDir src/scripts
+ amd2cmd --in src/scripts/**/*.js --out build/scripts --baseDir src/scripts
 ```
 
 ### use with node.js
@@ -53,12 +53,11 @@ First, install amd2cmd:
 Then, you can use amd2cmd like this:
 
 ```js
-import { transform } from 'amd2cmd';
+import transform from 'amd2cmd';
 
-transform({
-  in: 'src/scripts/**/*.js',
-  out: 'build/scripts',
-  baseDir: 'src/scripts',
+transform(['src/scripts/**/*.js'], 'build/scripts', 'src/scripts')
+.on('finish', function() {
+  console.log('finish to transform amd code to cmd code');
 });
 ```
 

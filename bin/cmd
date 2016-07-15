@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+/* eslint-disable */
+var program = require('commander');
+var version = require('../package.json').version;
+var amd2cmd = require('../');
+var path = require('path');
+
+program
+    .version(version)
+    .option('--in <in>', 'set src files pattern, like app/scripts/**/*.js. Pattern regexp see https://github.com/isaacs/node-glob', /.+/)
+    .option('--out <out>', 'set output directory')
+    .option('--basedir <basedir>', 'set base dir, like app/scripts.')
+    .parse(process.argv);
+
+function formatFilePath(filePath) {
+  if (path.isAbsolute(filePath)) {
+    return filePath;
+  }
+
+  return path.join(process.cwd(), filePath);
+}
+
+if (program.in && program.out && program.basedir) {
+  amd2cmd([formatFilePath(program.in)],
+    formatFilePath(program.out), formatFilePath(program.basedir))
+  .on('finish', function() {
+    console.log('finsih amd to cmd.');
+  });
+} else {
+  console.log('you must be set --in, --out and --basedir');
+  program.help();
+}
